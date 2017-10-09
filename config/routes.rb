@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controller: {
   resources :posts
   get 'welcome/index'
 
@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   get 'welcome/contact'
 
   get 'welcome/service'
+ 	
+  }
 
   root 'welcome#index'
+  
 end
