@@ -16,7 +16,7 @@
       <tr>
 
         <td><%= post.title %></td>
-        <td><%= image_tag(post.photo, class: "img-responsive", size: "width:50px") %></td>
+        <td><%= image_tag(post.photo.thumb, class: "img-responsive") %></td>
         <td><%= post.description %></td>
         <td><%= post.adoption %></td>
         <td><%= link_to 'Show', post, class: "btn btn-sm btn-primary" %></td>

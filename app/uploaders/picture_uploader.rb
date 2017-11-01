@@ -16,10 +16,12 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
    def default_url(*args)
-  #   # For Rails 3.1+ asset pipeline compatibility:
-  #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
+  # For Rails 3.1+ asset pipeline compatibility:
+  #  ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
+    ActionController::Base.helpers.asset_path("default/" + [version_name, "default_pets.jpg"].compact.join('_'))
   #
-  "https://greenhost.net/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"
+  # imagen con url:
+  #"https://greenhost.net/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
    end
 
@@ -30,7 +32,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
-    process resize_to_fit: [200, 200]
+   process resize_to_fit: [200, 200]
   # Create different versions of your uploaded files:
    version :thumb do
      process resize_to_fill: [50, 50]
