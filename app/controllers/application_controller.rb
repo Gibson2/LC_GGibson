@@ -3,8 +3,6 @@ class ApplicationController < ActionController::Base
 
   #before_action :authenticate_user!, except: [:index, :news, :contact, :about, :service]
 
-
-
   def filter_admin!
     authenticate_user!
     redirect_to root_path, alert: "No tienes acceso" unless current_user.admin?
