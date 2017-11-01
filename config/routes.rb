@@ -1,17 +1,20 @@
 Rails.application.routes.draw do
+  
+  resources :posts do 
+  	resources :comments, only: [:create]
+  end
+
+
   devise_for :users, controller: {
-  resources :posts
-  get 'welcome/index'
-
-  get 'welcome/about'
-
-  get 'welcome/news'
-
-  get 'welcome/contact'
-
-  get 'welcome/service'
- 	
+    registrations: 'users/registrations'	
   }
+  resources :users
+
+  get 'welcome/index'
+  get 'welcome/news'
+  get 'welcome/contact'
+  get 'welcome/about'
+  get 'welcome/service'
 
   root 'welcome#index'
   
