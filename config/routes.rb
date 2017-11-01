@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   end
 
 
-  devise_for :users, controller: {
+  devise_for :users, controllers: {
     registrations: 'users/registrations'	
   }
-  resources :users
+  #resources :users
 
   get 'welcome/index'
   get 'welcome/news'

@@ -3,8 +3,8 @@ class CommentsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
+    @comment = @post.comments.build(comment_params)
     @comment.user = current_user!
-    @comment = @post.comments.build(comments_params)
 
     if @comment.save!
       redirect_to @post,
@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
   end
 
   private
-    def comments_params
+    def comment_params
       params.require(:comment).permit(:comment)
     end
 end
