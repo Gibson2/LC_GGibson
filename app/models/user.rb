@@ -14,6 +14,6 @@ class User < ApplicationRecord
     self.role ||= 0
   end
 
-  enum role: {admin: 2,  guest: 1, normal: 0}
+  enum role: {guest: 0, normal: 1, admin: 2}
   
 end
