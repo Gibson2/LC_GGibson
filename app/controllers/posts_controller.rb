@@ -7,12 +7,13 @@ class PostsController < ApplicationController
   def index
     @search_query = params[:q]
     if @search_query.nil?
-      @posts = Post.all      
+      @posts = Post.all.where(user_id: current_user)      
     else
       @posts = Post.where("title ilike ? or description ilike ?", "%#{@search_query}%", "%#{@search_query}%")
     end
 
     @posts = @posts.page params[:page]
+
   end
 
   # GET /posts/1

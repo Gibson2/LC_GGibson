@@ -9,23 +9,19 @@
   </head>
 
   <body>
+    
     <% unless user_signed_in? %>
-
-  	<%= render 'shared/navbarhome' %>
-    
+  	 <%= render 'shared/navbarhome' %>    
     <% else %>
-
-    <%= render 'shared/navbaruser' %>
-    
+      <%= render 'shared/navbaruser' %>    
     <% end %>
 
-    <div>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    </div>
+    <div class="notice"><%= notice %></div>
+    <div class="alert"><%= alert %></div>
 
   	<div class="container">
   		<%= yield %>
   	</div>
+
   </body>
 </html>
