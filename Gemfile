@@ -71,6 +71,9 @@ group :development, :test do
 
   #Protector de clave - Desarrollo
   gem 'dotenv-rails'
+
+  #Bullet DB
+  gem 'bullet'
 end
 
 group :development do
