@@ -6,7 +6,7 @@
 
   <p>
     <strong>Photo:</strong>
-    <%= @post.photo %>
+    <%= image_tag @post.photo, class: 'img-responsive', width: 300 if @post.photo%>
   </p>
 
   <p>

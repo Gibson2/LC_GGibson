@@ -53,7 +53,7 @@ Rails.application.configure do
     Bullet.enable = true
     Bullet.bullet_logger = true
     Bullet.console = true
-    Bullet.growl = true
+    #Bullet.growl = true
   end
 
   # Raises error for missing translations

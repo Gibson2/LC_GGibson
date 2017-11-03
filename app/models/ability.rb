@@ -9,6 +9,7 @@ class Ability
          can :manage, :all
        elsif user.normal?
          can :read, :all
+         can :all_posts, Post
          can :create, [Post, Comment]
          can [:edit, :destroy],[Post, Comment], user_id: user.id
        else

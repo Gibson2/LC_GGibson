@@ -1,13 +1,20 @@
 class PostsController < ApplicationController
-  load_and_authorize_resource
+  before_action :authenticate_user!
+  load_and_authorize_resource #find_by: :slug
   #before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
   # GET /posts.json
+  def all_posts
+    @posts = Post.not_user(current_user).page params[:page]
+    
+  end
+
   def index
     @search_query = params[:q]
+    @user = current_user
     if @search_query.nil?
-      @posts = Post.all.where(user_id: current_user)      
+      @posts = @user.posts    
     else
       @posts = Post.where("title ilike ? or description ilike ?", "%#{@search_query}%", "%#{@search_query}%")
     end
@@ -19,6 +26,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    #@post = Post.friendly.find(params[:id])
     @view_comments = @post.comments.all
     @comment = @post.comments.build
   end

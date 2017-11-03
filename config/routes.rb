@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   
   resources :posts do 
+    collection do
+      get 'all_posts'
+    end    
   	resources :comments, only: [:create, :show]
   end
 
