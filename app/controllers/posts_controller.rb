@@ -1,22 +1,30 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
   load_and_authorize_resource #find_by: :slug
   #before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
   # GET /posts.json
   def all_posts
-    @posts = Post.not_user(current_user).page params[:page]
-    
+    @search_query = params[:q]
+    #other_posts = Post.not_user(current_user).page params[:page]
+    other_posts = Post.not_user(current_user)
+    if @search_query.nil?
+      @posts = other_posts
+    else
+      @posts = other_posts.where("title ilike ? or description ilike ?", "%#{@search_query}%", "%#{@search_query}%")
+    end
+
+    @posts = @posts.page params[:page]    
   end
 
   def index
     @search_query = params[:q]
     @user = current_user
     if @search_query.nil?
-      @posts = @user.posts    
+      @posts = @user.posts.order("id desc")    
     else
-      @posts = Post.where("title ilike ? or description ilike ?", "%#{@search_query}%", "%#{@search_query}%")
+      @posts = @user.posts.where("title ilike ? or description ilike ?", "%#{@search_query}%", "%#{@search_query}%")
     end
 
     @posts = @posts.page params[:page]
@@ -60,6 +68,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
+    @post.user = current_user if @post.user.nil?
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
@@ -89,6 +98,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :photo, :photo_cache, :description, :adoption, :comment, :remote_photo_url)
+      params.require(:post).permit(:user, :title, :photo, :photo_cache, :description, :adoption, :comment, :remote_photo_url)
     end
 end

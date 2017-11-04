@@ -11,11 +11,11 @@ Post.destroy_all
 #User.destroy_all
 
 12.times do |n|
-	Post.create(title: "Post por Seed #{n} User 1", user_id: User.first.id)
+	Post.create(title: "Post por Seed #{n} User 1", user: User.first)
 	end
 
 12.times do |n|
-	Post.create(title: "Post por Seed #{n} User 2", user_id: User.last.id)
+	Post.create(title: "Post por Seed #{n} User 2", user: User.last)
 	end
 
 # #Providencias de Chile

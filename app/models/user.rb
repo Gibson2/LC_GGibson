@@ -10,6 +10,7 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   before_save :default_role
+  
   def default_role
     self.role ||= 0
   end
