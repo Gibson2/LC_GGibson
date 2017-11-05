@@ -11,32 +11,46 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :post_title %>
-  </div>
+<!--Main of code-->
+  <small class="form-text text-muted">Coleque informacion real</small>
+
+  <div class="form-group">
+    <div>      
+      <%= form.label :photo, "Subir foto:" %>
+      <%= form.file_field :photo, id: :post_photo %>
+      <%#= form.text_field :remote_photo_url %>
+      <%= form.hidden_field :photo_cache %>
+      <%= image_tag(post.photo) if post.photo?%>
+    </div>
+
+    <div class="field">
+      <legend></legend>
+      <%= form.label :title, "Titulo del Post: " %>
+      <%= form.text_field :title, id: :post_title, placeholder: "Descripcion", class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :description, "Description: " %>
+      <%= form.text_area(:description, id: :post_description, placeholder: "Descripcion", class: "form-control")%>
+    </div>
 
   <div class="field">
-    <%= form.label :photo %>
-    <br>
-    <br>
-    <%= form.file_field :photo, id: :post_photo %>
-    <%= form.text_field :remote_photo_url %>
-    <%= form.hidden_field :photo_cache %>
-    <%= image_tag(post.photo) if post.photo?%>
-  </div>
+    <%= form.label :adoption %>
+    <%= radio_button_tag(:adoption, true) %>
+    <%= label_tag(:adoption_true, "Si") %>
+    <%= radio_button_tag(:adoption, false) %>
+    <%= label_tag(:adoption_false, "No") %>
+ </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :post_description %>
-  </div>
-
-  <div class="field">
+   <div class="field">
     <%= form.label :adoption %>
     <%= form.check_box :adoption, id: :post_adoption %>
   </div>
 
+
+  </div>
+
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Crear", class: "btn btn-primary" %>
   </div>
 <% end %>

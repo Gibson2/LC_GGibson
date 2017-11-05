@@ -11,6 +11,7 @@
         <li class="active"><a href="<%= root_path %>">Inicio <span class="sr-only">(current)</span></a></li>
 
     <% unless user_signed_in? %>
+        <li><a href="<%= welcome_help_path %>">Como Ayudar?</a></li>
         <li><a href="<%= welcome_news_path %>">Noticias</a></li>
         <li><a href="<%= welcome_contact_path %>">Contacto</a></li>
         <li><a href="<%= welcome_about_path %>">Quienes somos</a></li>

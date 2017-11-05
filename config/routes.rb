@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
   get 'welcome/news'
+  get 'welcome/help'
   get 'welcome/contact'
   get 'welcome/about'
   get 'welcome/service'

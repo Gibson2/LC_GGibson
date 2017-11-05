@@ -21,8 +21,10 @@ class PostsController < ApplicationController
   def index
     @search_query = params[:q]
     @user = current_user
+
     if @search_query.nil?
-      @posts = @user.posts.order("id desc")    
+      @posts = @user.posts.order("id desc")
+      #@posts = Post.all    
     else
       @posts = @user.posts.where("title ilike ? or description ilike ?", "%#{@search_query}%", "%#{@search_query}%")
     end
