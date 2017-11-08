@@ -1,18 +1,20 @@
-<%= form_tag("", method: :get) do %>
-  <%= search_field_tag("q") %>
-  <%= submit_tag "Buscar", class: "btn btn-primary" %>
-<% end %>
+<div class="text-right">
+  <%= form_tag("", method: :get) do %>
+    <%= search_field_tag("q", "Busca otras publicaciones") %>
+    <%= submit_tag "Buscar", class: "btn btn-primary" %>
+  <% end %>
+</div>
   
-<h1>Otros Posts</h1>
+<h1>Otras Publicaciones</h1>
 
 <table class="table table-striped table-hover table-responsive">
   <thead>
     <tr>
-      <th>Title</th>
       <th>Photo</th>
+      <th>Title</th>
       <th>Description</th>
-      <th>Adoption</th>
-      <th colspan="3"></th>
+      <th class="text-center">Fue Adoptado?</th>
+      <th colspan="6"></th>
     </tr>
   </thead>
 
@@ -20,16 +22,16 @@
     <% @posts.each do |post| %>
       <tr>
 
+        <td><%= image_tag(post.photo.thumb, class: "img-rounded img-responsive") %></td>
         <td><%= post.title %></td>
-        <td><%= image_tag(post.photo.thumb, class: "img-responsive") %></td>
         <td><%= post.description %></td>
-        <td><%= post.adoption ? 'Si' : 'No' %></td>
-        <td><%= link_to 'Ver Comentarios', post, class: "btn btn-sm btn-primary" %></td>
+        <td class="text-center"><%= post.adoption ? 'Si' : 'No' %></td>
+        <td class="text-center"><%= link_to 'Ver Comentarios', post, class: "btn-sm btn-primary" %></td>
+        <td><%= post.updated_at.to_formatted_s(:long) %></td>
       </tr>
 
     <% end %>
   </tbody>
-  <%= paginate @posts %>
 </table>
   <%= paginate @posts %>
 

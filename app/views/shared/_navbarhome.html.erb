@@ -1,29 +1,62 @@
+<!-- #2FA4E7 -->
 <nav class="navbar navbar-default">
   <div class="container-fluid">
-  <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
-    <a class="navbar-brand" href="<%= root_path %>">Llevame Contigo</a>
-  </div>
+    <div class="navbar-header">
+      <a class="navbar-brand" href="<%= root_path %>" >
+        <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
+        Llevame Contigo </a>
+    </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <!-- Tha nav -->
       <ul class="nav navbar-nav">
-        <li class="active"><a href="<%= root_path %>">Inicio <span class="sr-only">(current)</span></a></li>
 
     <% unless user_signed_in? %>
+        <li><a href="<%= root_path %>">Inicio</a></li>
         <li><a href="<%= welcome_help_path %>">Como Ayudar?</a></li>
         <li><a href="<%= welcome_news_path %>">Noticias</a></li>
-        <li><a href="<%= welcome_contact_path %>">Contacto</a></li>
-        <li><a href="<%= welcome_about_path %>">Quienes somos</a></li>
         <li><a href="<%= welcome_service_path %>">Servicios</a></li>
+        <li><a href="<%= welcome_about_path %>">Quienes somos</a></li>
+        <li><a href="<%= welcome_contact_path %>">Contacto</a></li>
       </ul>
       <div class="nav navbar-right">      
         <p class="navbar-text">Quieres ayudar?</p>
         <%= link_to "Registrate", new_user_registration_path, class: "btn btn-primary btn-md navbar-btn", type: "button" %>
         <%= link_to "Tu Cuenta", new_user_session_path, class: "btn btn-primary btn-md navbar-btn", type: "button" %>
       </div>
-    <% end %>
 
+    <% else %>
+        <li><a href="<%= all_posts_posts_path %>">Publicaciones</a></li>        
+        <li><a href="<%= posts_path %>">Tus Posts</a></li>
+        <li><a href="<%= "#" %>">Tus Aportes</a></li>
+      </ul>
+
+      <div class="nav navbar-right">
+        <!-- Split button -->
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary"><%= current_user.name %></button>
+
+          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="caret"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="<%= welcome_help_path %>">Como Ayudar?</a></li>
+            <li><a href="<%= welcome_news_path %>">Noticias</a></li>
+            <li><a href="<%= welcome_service_path %>">Servicios</a></li>
+            <li><a href="<%= welcome_about_path %>">Quienes somos</a></li>
+            <li><a href="<%= welcome_contact_path %>">Contacto</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="<%= edit_user_registration_path %>"> Editar Usuarios </a></li>
+            <li><a href="#">Ayuda</a></li>
+          </ul>
+        </div> 
+
+
+        <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: "btn btn-primary navbar-btn", type: "button"%>           
+      </div>
+
+    <% end %>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

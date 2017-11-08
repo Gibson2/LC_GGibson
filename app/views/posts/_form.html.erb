@@ -34,18 +34,19 @@
       <%= form.text_area(:description, id: :post_description, placeholder: "Descripcion", class: "form-control")%>
     </div>
 
-  <div class="field">
-    <%= form.label :adoption %>
-    <%= radio_button_tag(:adoption, true) %>
-    <%= label_tag(:adoption_true, "Si") %>
-    <%= radio_button_tag(:adoption, false) %>
-    <%= label_tag(:adoption_false, "No") %>
- </div>
-
    <div class="field">
     <%= form.label :adoption %>
     <%= form.check_box :adoption, id: :post_adoption %>
   </div>
+
+  <div class="field">
+    <legend>Fue adoptado?</legend>
+    <%= form.radio_button(:adoption, true, id: :post_adoption ) %>
+    <%= form.label :adoption, "Si" %>
+    <%= form.radio_button(:adoption, false, checkout: false, id: :post_adoption) %>
+    <%= form.label:adoption_false, "No" %>
+ </div>
+
 
 
   </div>

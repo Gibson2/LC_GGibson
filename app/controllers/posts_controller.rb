@@ -10,9 +10,9 @@ class PostsController < ApplicationController
     #other_posts = Post.not_user(current_user).page params[:page]
     other_posts = Post.not_user(current_user)
     if @search_query.nil?
-      @posts = other_posts
+      @posts = other_posts.order("id desc")
     else
-      @posts = other_posts.where("title ilike ? or description ilike ?", "%#{@search_query}%", "%#{@search_query}%")
+      @posts = other_posts.where("title ilike ? or description ilike ?", "%#{@search_query}%", "%#{@search_query}%").order("id desc")
     end
 
     @posts = @posts.page params[:page]    
@@ -26,7 +26,7 @@ class PostsController < ApplicationController
       @posts = @user.posts.order("id desc")
       #@posts = Post.all    
     else
-      @posts = @user.posts.where("title ilike ? or description ilike ?", "%#{@search_query}%", "%#{@search_query}%")
+      @posts = @user.posts.where("title ilike ? or description ilike ?", "%#{@search_query}%", "%#{@search_query}%").order("id desc")
     end
 
     @posts = @posts.page params[:page]

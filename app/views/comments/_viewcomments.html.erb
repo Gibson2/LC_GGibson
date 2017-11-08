@@ -1,4 +1,7 @@
-<div>
-	<%= viewcomments.comment %>
-	<%= viewcomments.user.name %>
+<div class="panel panel-info">
+  <%= viewcomments.comment %>
+  <div role="separator" class="divider-comments"></div>
+  <div>
+    <%= "by @" + viewcomments.user.name + "_" +  viewcomments.user.id.to_s %>    
+  </div>
 </div>

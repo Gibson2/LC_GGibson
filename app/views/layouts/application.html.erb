@@ -9,13 +9,14 @@
   </head>
 
   <body>
-    
-    <% unless user_signed_in? %>
-     <%= render 'shared/navbarhome' %>    
-    <% else %>
-      <%= render 'shared/navbaruser' %>    
-    <% end %>
-
+    <%= render 'shared/navbarhome' %>
+    <!-- 
+    <%# unless user_signed_in? %>
+     <%#= render 'shared/navbarhome' %>    
+    <%# else %>
+      <%#= render 'shared/navbaruser' %>    
+    <%# end %>
+    -->
     <div class="notice"><%= notice %></div>
     <div class="alert"><%= alert %></div>
 
