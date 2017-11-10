@@ -6,15 +6,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Comment.destroy_all
-Post.destroy_all
-#User.destroy_all
+# Comment.destroy_all
+# Post.destroy_all
+# User.destroy_all
+# AdminUser.destroy_all
 
-12.times do |n|
+ # User.create(name: "g", email: "g@gmail.com", password: "123456")
+# User.create(name: "Prueba", email: "test@gibson.com", password: "password")
+
+5.times do |n|
 	Post.create(title: "Post por Seed #{n} User 1", user: User.first)
 	end
 
-12.times do |n|
+5.times do |n|
 	Post.create(title: "Post por Seed #{n} User 2", user: User.last)
 	end
 
@@ -41,3 +45,5 @@ Post.destroy_all
 # 	{name: "Punta Padrones", cod_province: "PPD"},
 # 	{name: "Punta Patache", cod_province: "PPC"},
 # 	])
+
+#AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

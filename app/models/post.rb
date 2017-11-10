@@ -1,12 +1,10 @@
 class Post < ApplicationRecord
 	# extend FriendlyId
-   	#friendly_id :title, title: :slugged
-
+  #friendly_id :title, title: :slugged
+  has_many :comments, dependent: :destroy
+  belongs_to :user
+  
  	scope :not_user,->(user) {where.not(user: user)}
-
-	has_many :comments, dependent: :destroy
-	belongs_to :user
-	
 
 	paginates_per 5
 

@@ -11,6 +11,15 @@
 @import "active_admin/mixins";
 @import "active_admin/base";
 
+//Logo
+$skinLogo: url("admin_logo.png") no-repeat 0 0;
+
+$skinActiveColor: #0FBD18;
+$skinHeaderBck: #000000;
+$panelHeaderBck: #1FBD6D;
+
+@import "active_skin";
+
 // Overriding any non-variable SASS must be done after the fact.
 // For example, to change the default status-tag color:
 //

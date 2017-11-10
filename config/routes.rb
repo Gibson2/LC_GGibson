@@ -1,18 +1,22 @@
 Rails.application.routes.draw do
   
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'  
+  }
+  #resources :users
+
   devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
+  
+
   resources :posts do 
     collection do
       get 'all_posts'
     end    
-  	resources :comments, only: [:create, :show]
+    resources :comments, only: [:create, :show]
   end
 
-
-  devise_for :users, controllers: {
-    registrations: 'users/registrations'	
-  }
-  #resources :users
 
   get 'welcome/index'
   get 'welcome/news'

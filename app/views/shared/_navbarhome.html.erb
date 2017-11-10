@@ -9,9 +9,8 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <!-- Tha nav -->
-      <ul class="nav navbar-nav">
-
     <% unless user_signed_in? %>
+      <ul class="nav navbar-nav">
         <li><a href="<%= root_path %>">Inicio</a></li>
         <li><a href="<%= welcome_help_path %>">Como Ayudar?</a></li>
         <li><a href="<%= welcome_news_path %>">Noticias</a></li>
@@ -26,6 +25,7 @@
       </div>
 
     <% else %>
+      <ul class="nav navbar-nav">
         <li><a href="<%= all_posts_posts_path %>">Publicaciones</a></li>        
         <li><a href="<%= posts_path %>">Tus Posts</a></li>
         <li><a href="<%= "#" %>">Tus Aportes</a></li>
@@ -54,9 +54,14 @@
 
 
         <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: "btn btn-primary navbar-btn", type: "button"%>           
-      </div>
+      </div>        
 
     <% end %>
+    <div class="nav navbar-right">      
+      <button class="btn  navbar-btn">
+      </button>
+    </div>
+
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

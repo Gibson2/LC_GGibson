@@ -29,11 +29,11 @@
 
 <button class="btn btn-primary">
   
-<% if current_user == @post.user %>
-  <%= link_to 'Atras', posts_path %>
-<% else %>
-  <%= link_to 'otros posts', all_posts_posts_path %>
-<% end %>
+  <% if current_user == @post.user %>
+    <%= link_to 'Atras', posts_path %>
+  <% else %>
+    <%= link_to 'otros posts', all_posts_posts_path %>
+  <% end %>
 </button>
 
 

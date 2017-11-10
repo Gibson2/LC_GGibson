@@ -57,7 +57,10 @@ gem 'kaminari'
 gem 'friendly_id', '~> 5.1.0'
 
 #Activeadmin
-gem 'activeadmin'
+gem 'activeadmin', github: 'activeadmin'
+
+#Template de ActiveAdmin
+gem 'active_skin'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
