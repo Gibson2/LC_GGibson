@@ -14,13 +14,13 @@
  # User.create(name: "g", email: "g@gmail.com", password: "123456")
 # User.create(name: "Prueba", email: "test@gibson.com", password: "password")
 
-5.times do |n|
-	Post.create(title: "Post por Seed #{n} User 1", user: User.first)
-	end
+# 5.times do |n|
+# 	Post.create(title: "Post por Seed #{n} User 1", user: User.first)
+# 	end
 
-5.times do |n|
-	Post.create(title: "Post por Seed #{n} User 2", user: User.last)
-	end
+# 5.times do |n|
+# 	Post.create(title: "Post por Seed #{n} User 2", user: User.last)
+# 	end
 
 # #Providencias de Chile
 # pro = Province.create

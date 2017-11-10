@@ -29,30 +29,27 @@ ActiveAdmin.register_page "Dashboard" do
     #     end
     #   end
     # end
-      columns do
-          column do
-            panel "Ultimas Mascotas Adoptadas" do
-                ul do
-                    Post.last(10).each  do |post|
-                        li link_to(post.adoption ? true : false, admin_post_path(post))
-                    end
-
+    # 
+    columns do
+      column do
+        panel "Ultimas Mascotas Adoptadas" do
+            ul do
+                Post.last(10).each  do |post|
+                    li link_to(post.adoption ? true : false, admin_post_path(post))
                 end
             end
+            end
         end 
-      end
+    end
 
-      columns do 
+    columns do 
         panel "Tipos de Usuarios" do
             ul do
-             li "Normal - #{User.where(role: 1).count}"
-             li "Admin - #{User.where(role: 2).count}"
-             li "SuperAdmin - #{AdminUser.count}"               
+                 li "Normal - #{User.where(role: 1).count}"
+                 li "Admin - #{User.where(role: 2).count}"
+                 li "SuperAdmin - #{AdminUser.count}"               
             end
-        end
-          
-      end
-
-
+        end          
+    end
   end # content
 end
