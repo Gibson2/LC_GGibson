@@ -62,6 +62,16 @@ gem 'activeadmin', github: 'activeadmin'
 #Template de ActiveAdmin
 gem 'active_skin'
 
+#Geocoder
+gem 'geocoder'
+
+gem 'gmaps4rails'
+
+gem 'underscore-rails'
+
+#Protector de clave - Desarrollo
+gem 'dotenv-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

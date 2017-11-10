@@ -8,7 +8,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="banner">
     <%= render 'shared/navbarhome' %>
     <!-- 
     <%# unless user_signed_in? %>
@@ -20,7 +20,7 @@
     <div class="notice"><%= notice %></div>
     <div class="alert"><%= alert %></div>
 
-    <div class="container">
+    <div class="container bw-color">
       <%= yield %>
     </div>
 

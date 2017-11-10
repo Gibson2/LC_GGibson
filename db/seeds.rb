@@ -11,7 +11,7 @@
 # User.destroy_all
 # AdminUser.destroy_all
 
- # User.create(name: "g", email: "g@gmail.com", password: "123456")
+# User.create(name: "gui", email: "gibsonguilllermoarturo@gmail.com", password: "123456")
 # User.create(name: "Prueba", email: "test@gibson.com", password: "password")
 
 # 5.times do |n|

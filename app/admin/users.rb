@@ -27,7 +27,7 @@ ActiveAdmin.register User do
 
   controller do
     def update
-      if (params[:user][:password].black? && params[:user][:password_confirmation].black?)
+      if (params[:user][:password].blank? && params[:user][:password_confirmation].black?)
         params[:user].delete("password")
         params[:user].delete("password_confirmation")        
       end

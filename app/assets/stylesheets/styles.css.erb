@@ -4,9 +4,31 @@ body {
   border: 0;
 }
 
+.banner{
+    background-image: url(' <%= asset_path "background/b_2.jpg" %>');
+/*     margin-top: -20px;
+    padding-top: 170px;
+        /* The image used */ */
+    /* background-image: url("img_girl.jpg"); */
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .bw-color{
+    background: white;
+    border-radius: 5px;
+  }
+
 .container {
-  padding-right: 5px;
-  padding-left: 5px;
+  padding: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
   margin-right: auto;
   margin-left: auto;
   border: 0;
@@ -52,6 +74,12 @@ body {
   height: 500px;
   min-height: auto;
   max-height: 500px;
+}
+
+.border-down{
+  background-color: black;
+  padding-top: 10px;
+  margin-top: 30px;
 }
 
 /** Video **/
@@ -297,6 +325,3 @@ body {
 }
 
 
-.thead-blue{
-  background-color: blue;
-}
