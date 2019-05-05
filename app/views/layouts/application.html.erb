@@ -1,28 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Llevamecontigo</title>
+    <title>TakeMeWithYou</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="banner">
-    <%= render 'shared/navbarhome' %>
-    <!-- 
-    <%# unless user_signed_in? %>
-     <%#= render 'shared/navbarhome' %>    
-    <%# else %>
-      <%#= render 'shared/navbaruser' %>    
-    <%# end %>
-    -->
-    <div class="notice"><%= notice %></div>
-    <div class="alert"><%= alert %></div>
-
-    <div class="container bw-color">
-      <%= yield %>
-    </div>
-
+  <body>
+    <%= yield %>
   </body>
 </html>

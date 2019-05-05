@@ -37,9 +37,6 @@ Rails.application.configure do
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
 
-  #Devise
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
@@ -47,14 +44,6 @@ Rails.application.configure do
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
-
-  #Bullet
-  config.after_initialize do
-    Bullet.enable = true
-    Bullet.bullet_logger = true
-    Bullet.console = true
-    #Bullet.growl = true
-  end
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
